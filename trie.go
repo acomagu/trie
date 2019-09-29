@@ -5,7 +5,7 @@ import (
 	"sort"
 )
 
-// https://engineering.linecorp.com/ja/blog/simple-tries/
+// Algorithm Explanation: https://engineering.linecorp.com/ja/blog/simple-tries/
 
 // Tree implements an immutable trie tree.
 type Tree []node

@@ -4,6 +4,8 @@
 
 The [Trie Tree](https://wikipedia.org/wiki/Trie) implementation in Go. It has flexible interface and works fast as Radix Tree implementation.
 
+This is basically an implementation of the algorithm described in [簡単なトライ - LINE ENGINEERING](https://engineering.linecorp.com/ja/blog/simple-tries/). I really appreciate the amazing ideas and the clear and easy-to-understand explanation.
+
 ## Benchmark
 
 Run `make bench` to run it locally.
