@@ -74,6 +74,8 @@ v, ok := t.Trace([]byte("abc")).Terminal()
 fmt.Println(v, ok) // => 2 true
 ```
 
+[Playground](https://play.golang.org/p/zi6qql1x0N_y)
+
 ### Longest Prefix
 
 ```Go
@@ -91,5 +93,7 @@ for _, c := range []byte("abcxxx") {
 
 fmt.Println(v, match) // => 2 true
 ```
+
+[Playground](https://play.golang.org/p/kMfsi15FItP)
 
 No special function to get longest prefix because it can be implemented yourself easily using the existing methods.
