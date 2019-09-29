@@ -10,7 +10,7 @@ This is basically an implementation of the algorithm described in [簡単なト�
 
 Run `make bench` to run it locally.
 
-### Exact Match
+### Exact Matching
 
 The task is to determine whether a string matches one of all Wikipedia titles.
 
@@ -57,7 +57,7 @@ The task is to prepare Trie/Radix Tree with all of the Wikipedia titles.
 
 ## Examples
 
-The common preparation for each examples:
+The common preparation for each example:
 
 ```Go
 keys := [][]byte{
