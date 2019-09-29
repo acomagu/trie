@@ -1,4 +1,4 @@
-# The fast and flexible Trie Tree implementation
+# trie: The fast and flexible Trie Tree implementation
 
 The [Trie Tree](https://wikipedia.org/wiki/Trie) implementation in Go. It has flexible interface and works fast as Radix Tree implementation.
 
