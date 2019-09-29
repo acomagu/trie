@@ -1,5 +1,7 @@
 # trie: The fast and flexible Trie Tree implementation
 
+[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg?style=flat-square)](https://godoc.org/github.com/acomagu/trie)
+
 The [Trie Tree](https://wikipedia.org/wiki/Trie) implementation in Go. It has flexible interface and works fast as Radix Tree implementation.
 
 ## Benchmark
