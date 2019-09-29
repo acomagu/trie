@@ -6,7 +6,7 @@ import (
 	"github.com/acomagu/trie"
 )
 
-func Example_Match() {
+func Example_match() {
 	keys := [][]byte{
 		[]byte("ab"),
 		[]byte("abc"),
@@ -19,7 +19,7 @@ func Example_Match() {
 	fmt.Println(v, ok) // Output: 2 true
 }
 
-func Example_LongestPrefix() {
+func Example_longestPrefix() {
 	keys := [][]byte{
 		[]byte("ab"),
 		[]byte("abc"),
@@ -43,7 +43,7 @@ func Example_LongestPrefix() {
 	fmt.Println(v, match) // Output: 2 true
 }
 
-func Example_Terminal() {
+func ExampleTree_Terminal() {
 	keys := [][]byte{ []byte("aa") }
 	values := []interface{}{1}
 	t := trie.New(keys, values)
