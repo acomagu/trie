@@ -70,7 +70,7 @@ t := trie.New(keys, values)
 ### Exact Match
 
 ```Go
-v, ok := t.Trace([]byte("abc")).Complete()
+v, ok := t.Trace([]byte("abc")).Terminal()
 fmt.Println(v, ok) // => 2 true
 ```
 
@@ -83,7 +83,7 @@ for _, c := range []byte("abcxxx") {
 	if t = t.TraceByte(c); t == nil {
 		break
 	}
-	if vv, ok := t.Complete(); ok {
+	if vv, ok := t.Terminal(); ok {
 		v = vv
 		match = true
 	}
