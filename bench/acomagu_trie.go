@@ -1,11 +1,11 @@
 package bench
 
 import (
-	"github.com/acomagu/trie"
+	"github.com/acomagu/trie/v2"
 )
 
 type acomaguTrie struct {
-	tree trie.Tree
+	tree trie.Tree[byte, any]
 }
 
 func (t *acomaguTrie) Name() string {
@@ -26,7 +26,7 @@ func (t *acomaguTrie) LongestPrefix(s []byte) (interface{}, bool) {
 
 	tt := t.tree
 	for _, c := range s {
-		tt = tt.TraceByte(c)
+		tt = tt.TraceOne(c)
 		if tt == nil {
 			break
 		}

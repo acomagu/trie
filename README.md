@@ -1,10 +1,14 @@
 # trie: The fast and flexible Trie Tree implementation
 
-[![GoDoc](https://img.shields.io/badge/godoc-reference-blue.svg?style=flat-square)](https://godoc.org/github.com/acomagu/trie)
+[![Reference](https://pkg.go.dev/badge/github.com/acomagu/trie/v2)](https://pkg.go.dev/github.com/acomagu/trie/v2)
 
 The [Trie Tree](https://wikipedia.org/wiki/Trie) implementation in Go. It has flexible interface and works fast as Radix Tree implementation.
 
 This is basically an implementation of the algorithm described in [簡単なトライ - LINE ENGINEERING](https://engineering.linecorp.com/ja/blog/simple-tries/). I really appreciate the amazing ideas and the clear and easy-to-understand explanation.
+
+## Import Path
+
+github.com/acomagu/trie<strong>/v2</strong>
 
 ## Benchmark
 
@@ -60,12 +64,18 @@ The task is to prepare Trie/Radix Tree with all of the Wikipedia titles.
 The common preparation for each example:
 
 ```Go
+import (
+	"fmt"
+
+	"github.com/acomagu/trie/v2"
+)
+
 keys := [][]byte{
 	[]byte("ab"),
 	[]byte("abc"),
 	[]byte("abd"),
 }
-values := []interface{}{1, 2, 3}
+values := []int{1, 2, 3} // The type of value doesn't have to be int. Can be anything.
 t := trie.New(keys, values)
 ```
 
@@ -78,12 +88,12 @@ v, ok := t.Trace([]byte("abc")).Terminal()
 fmt.Println(v, ok) // => 2 true
 ```
 
-[Playground](https://play.golang.org/p/zi6qql1x0N_y)
+[Playground](https://go.dev/play/p/dqswqXlxe3Q)
 
 ### Longest Prefix
 
 ```Go
-var v interface{}
+var v int
 var match bool
 for _, c := range []byte("abcxxx") {
 	if t = t.TraceByte(c); t == nil {
@@ -98,6 +108,6 @@ for _, c := range []byte("abcxxx") {
 fmt.Println(v, match) // => 2 true
 ```
 
-[Playground](https://play.golang.org/p/kMfsi15FItP)
+[Playground](https://go.dev/play/p/wvZmeIXaYAl)
 
 No special function to get longest prefix because it can be implemented yourself easily using the existing methods.

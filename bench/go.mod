@@ -1,9 +1,9 @@
 module github.com/acomagu/trie/bench
 
-go 1.12
+go 1.20
 
 require (
-	github.com/acomagu/trie v0.0.0-20190618102808-a2262b8e12fe
+	github.com/acomagu/trie/v2 v2.0.0
 	github.com/armon/go-radix v1.0.0
 	github.com/derekparker/trie v0.0.0-20190322172448-1ce4922c7ad9
 	github.com/dghubble/trie v0.0.0-20190512033633-6d8e3fa705df
@@ -14,4 +14,9 @@ require (
 	github.com/tchap/go-patricia v2.3.0+incompatible
 )
 
-replace github.com/acomagu/trie v0.0.0-20190618102808-a2262b8e12fe => ../
+require (
+	github.com/hashicorp/golang-lru v0.5.0 // indirect
+	golang.org/x/exp v0.0.0-20230310171629-522b1b587ee0 // indirect
+)
+
+replace github.com/acomagu/trie/v2 v2.0.0 => ../

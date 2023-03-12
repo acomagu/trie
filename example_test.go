@@ -3,7 +3,7 @@ package trie_test
 import (
 	"fmt"
 
-	"github.com/acomagu/trie"
+	"github.com/acomagu/trie/v2"
 )
 
 func Example_match() {
@@ -12,7 +12,7 @@ func Example_match() {
 		[]byte("abc"),
 		[]byte("abd"),
 	}
-	values := []interface{}{1, 2, 3}
+	values := []int{1, 2, 3} // The type of value doesn't have to be int. Can be anything.
 	t := trie.New(keys, values)
 
 	v, ok := t.Trace([]byte("abc")).Terminal()
@@ -25,13 +25,13 @@ func Example_longestPrefix() {
 		[]byte("abc"),
 		[]byte("abd"),
 	}
-	values := []interface{}{1, 2, 3}
+	values := []int{1, 2, 3} // The type of value doesn't have to be int. Can be anything.
 	t := trie.New(keys, values)
 
 	var v interface{}
 	var match bool
 	for _, c := range []byte("abcxxx") {
-		if t = t.TraceByte(c); t == nil {
+		if t = t.TraceOne(c); t == nil {
 			break
 		}
 		if vv, ok := t.Terminal(); ok {
@@ -44,21 +44,21 @@ func Example_longestPrefix() {
 }
 
 func ExampleTree_Terminal() {
-	keys := [][]byte{ []byte("aa") }
-	values := []interface{}{1}
+	keys := [][]byte{[]byte("aa")}
+	values := []int{1} // The type of value doesn't have to be int. Can be anything.
 	t := trie.New(keys, values)
 
-	t = t.TraceByte('a') // a
+	t = t.TraceOne('a') // a
 	fmt.Println(t.Terminal())
 
-	t = t.TraceByte('a') // aa
+	t = t.TraceOne('a') // aa
 	fmt.Println(t.Terminal())
 
-	t = t.TraceByte('a') // aaa
+	t = t.TraceOne('a') // aaa
 	fmt.Println(t.Terminal())
 
 	// Output:
-	// <nil> false
+	// 0 false
 	// 1 true
-	// <nil> false
+	// 0 false
 }
