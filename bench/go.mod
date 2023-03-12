@@ -14,4 +14,4 @@ require (
 	github.com/tchap/go-patricia v2.3.0+incompatible
 )
 
-replace github.com/acomagu/trie v0.0.0-20190618102808-a2262b8e12fe => /home/yuki/.local/src/github.com/acomagu/trie
+replace github.com/acomagu/trie v0.0.0-20190618102808-a2262b8e12fe => ../
