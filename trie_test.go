@@ -28,9 +28,9 @@ func TestTrace(t *testing.T) {
 				[]byte("DM"),
 			},
 			scs: []sc{
-				{[][]byte{[]byte{'A'}}, false},
-				{[][]byte{[]byte{'A'}, []byte{'M'}}, false},
-				{[][]byte{[]byte{'A'}, []byte{'M'}, []byte{'C'}}, true},
+				{[][]byte{[]byte("A")}, false},
+				{[][]byte{[]byte("AM")}, false},
+				{[][]byte{[]byte("AMC")}, true},
 			},
 		},
 		{
@@ -38,9 +38,9 @@ func TestTrace(t *testing.T) {
 				[]byte("12a"),
 			},
 			scs: []sc{
-				{[][]byte{[]byte{'1'}}, false},
-				{[][]byte{[]byte{'1'}, []byte{'2'}}, false},
-				{[][]byte{[]byte{'1'}, []byte{'2'}, []byte{'3'}}, true},
+				{[][]byte{[]byte("1")}, false},
+				{[][]byte{[]byte("12")}, false},
+				{[][]byte{[]byte("123")}, true},
 			},
 		},
 	}
@@ -87,16 +87,11 @@ func TestMatch(t *testing.T) {
 					complete: true,
 				},
 				{
-					ss: [][]byte{
-						[]byte{'A'},
-						[]byte{'M'},
-					},
+					ss:       [][]byte{[]byte("AM")},
 					complete: true,
 				},
 				{
-					ss: [][]byte{
-						[]byte{'A'},
-					},
+					ss:       [][]byte{[]byte("A")},
 					complete: false,
 				},
 			},
@@ -116,33 +111,19 @@ func TestMatch(t *testing.T) {
 					complete: false,
 				},
 				{
-					ss: [][]byte{
-						[]byte{'a'},
-					},
+					ss:       [][]byte{[]byte("a")},
 					complete: false,
 				},
 				{
-					ss: [][]byte{
-						[]byte{'a'},
-						[]byte{'b'},
-					},
+					ss:       [][]byte{[]byte("ab")},
 					complete: true,
 				},
 				{
-					ss: [][]byte{
-						[]byte{'a'},
-						[]byte{'b'},
-						[]byte{'c'},
-					},
+					ss:       [][]byte{[]byte("abc")},
 					complete: true,
 				},
 				{
-					ss: [][]byte{
-						[]byte{'a'},
-						[]byte{'b'},
-						[]byte{'c'},
-						[]byte{'e'},
-					},
+					ss:       [][]byte{[]byte("abce")},
 					complete: false,
 				},
 			},
@@ -153,15 +134,11 @@ func TestMatch(t *testing.T) {
 			},
 			es: []entry{
 				{
-					ss: [][]byte{
-						nil,
-					},
+					ss:       [][]byte{nil},
 					complete: true,
 				},
 				{
-					ss: [][]byte{
-						[]byte{'a'},
-					},
+					ss:       [][]byte{[]byte("a")},
 					complete: false,
 				},
 			},
@@ -207,34 +184,24 @@ func TestPredict(t *testing.T) {
 			},
 			es: []entry{
 				{
-					ss: [][]byte{
-						[]byte("A"),
-					},
+					ss:      [][]byte{[]byte("A")},
 					predict: []int{0, 1},
 				},
 				{
-					ss: [][]byte{
-						[]byte("AA"),
-					},
+					ss:      [][]byte{[]byte("AA")},
 					predict: []int{},
 				},
 				{
-					ss: [][]byte{
-						[]byte("B"),
-					},
+					ss:      [][]byte{[]byte("B")},
 					predict: []int{2},
 				},
 			},
 		},
 		{
-			ss: [][]byte{
-				[]byte("aaa"),
-			},
+			ss: [][]byte{[]byte("aaa")},
 			es: []entry{
 				{
-					ss: [][]byte{
-						[]byte("a"),
-					},
+					ss:      [][]byte{[]byte("a")},
 					predict: []int{0},
 				},
 			},
