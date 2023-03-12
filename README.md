@@ -8,7 +8,7 @@ This is basically an implementation of the algorithm described in [簡単なト�
 
 ## Benchmark
 
-Run `make bench` to run it locally.
+Run `make bench` to run it locally. [The latest benchmark result is here.](https://github.com/acomagu/trie/actions/workflows/bench.yml)
 
 ### Exact Matching
 
